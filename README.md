@@ -1,6 +1,6 @@
 # test-for-Sigma-Digital-Solutions
 
-# TO run this project
+# To run this project
 
 Create Database my_app
 
