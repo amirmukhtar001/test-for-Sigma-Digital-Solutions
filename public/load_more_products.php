@@ -25,6 +25,7 @@ foreach ($product_list as $product) {
                     <p class="card-text">' . htmlspecialchars($product['description']) . '</p>
                     <p class="card-text">Price: $' . htmlspecialchars($product['price']) . '</p>
                 </div>
+                <button class="btn btn-primary add-to-cart-btn" data-product-id="' . htmlspecialchars($product['id']) . '">Add to Cart</button>
             </div>
         </div>';
 }
