@@ -4,6 +4,8 @@
 
 Create Database my_app
 
+php 8.1.1
+
 # Commands
 
 # composer install
