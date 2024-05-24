@@ -1,10 +1,9 @@
 <?php
-
 require_once '../includes/header.php';
 
 session_start();
 
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     header("location: login.php");
     exit;
 }
@@ -22,7 +21,6 @@ if ($result = mysqli_query($link, $sql)) {
 }
 
 mysqli_close($link);
-
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +30,12 @@ mysqli_close($link);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-yGuK7eMsO8D1+8N6tn8pNsw/ZJrt+8jooEqrxo1DjIoPGW+p6s25jeGka3l0CGHs6zrwyxQXUZzXxIMrlG21dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
+        /* Add any custom styles here */
     </style>
 </head>
-
 <body>
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="#">Dashboard</a>
@@ -61,7 +57,6 @@ mysqli_close($link);
     </div>
 </nav>
 
-
 <div class="container mt-5">
     <h2>Welcome, <?php echo htmlspecialchars($_SESSION["username"]); ?></h2>
     <button class="btn btn-primary mb-3" onclick="location.href='add_product.php'">Add Product</button>
@@ -69,7 +64,6 @@ mysqli_close($link);
     <h3>Product List</h3>
     <div class="row" id="product-list">
         <?php
-        // Limit the initial number of products to display
         $initialLimit = 6;
         $displayedProducts = array_slice($product_list, 0, $initialLimit);
         foreach ($displayedProducts as $product) : ?>
@@ -82,14 +76,11 @@ mysqli_close($link);
                 </div>
                 <button class="btn btn-primary add-to-cart-btn" data-product-id="<?php echo $product['id']; ?>">Add to Cart</button>
             </div>
-            
         </div>
-        
         <?php endforeach; ?>
     </div>
     <button class="btn btn-secondary" id="load-more-btn">Load More</button>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
@@ -115,7 +106,6 @@ $(document).ready(function(){
         });
     });
 
-
     $('.add-to-cart-btn').click(function(){
         var productId = $(this).data('product-id');
         
@@ -134,7 +124,6 @@ $(document).ready(function(){
     });
 });
 </script>
-
 
 </body>
 </html>
