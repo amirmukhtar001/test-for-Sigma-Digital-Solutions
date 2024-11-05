@@ -2,7 +2,7 @@
 
 # To run this project
 
-Create Database my_app
+Create Database ecommerce-store
 
 php 8.1.1
 
